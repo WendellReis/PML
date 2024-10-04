@@ -51,7 +51,7 @@ class Perceptron {
 
         void train(vector<double> &in, double d) {
             for(int i = 1; i <= this->size; i++)
-                x[i] = in[i];
+                x[i] = in[i-1];
             
             double y = run(); //actual response quantized
 
