@@ -213,7 +213,7 @@ if __name__ == "__main__":
 
                 np.random.seed(opts.seed)
                 if problem == 'tsp':
-                    #dataset = generate_tsp_data(opts.dataset_size, graph_size)
+                    dataset = generate_tsp_data(opts.dataset_size, graph_size)
                     #dataset = generate_tsplib_data(opts.dataset_size, graph_size)
                     #dataset, datasetTest, inst = generate_trp_data(opts.dataset_size, graph_size)
                     #save_dataset(datasetTest,f'data\\trp\\trp_test{graph_size}_R{inst}_{opts.seed}.pkl')
