@@ -22,7 +22,7 @@ def validate(model, dataset, opts):
     cost = rollout(model, dataset, opts)
     avg_cost = cost.mean()
     print('Validation overall avg_cost: {} +- {}'.format(
-        avg_cost, torch.std(cost) / math.sqrt(len(cost))))
+        avg_cost * opts.multiplier, torch.std(cost) / math.sqrt(len(cost)) * opts.multiplier))
 
     return avg_cost
 

@@ -167,7 +167,7 @@ if __name__ == "__main__":
                         help="Distributions to generate for problem, default 'all'.")
 
     parser.add_argument("--dataset_size", type=int, default=10000, help="Size of the dataset")
-    parser.add_argument('--graph_sizes', type=int, nargs='+', default=[4],
+    parser.add_argument('--graph_sizes', type=int, nargs='+', default=[21],
                         help="Sizes of problem instances (default 20, 50, 100)")
     parser.add_argument("-f", action='store_true', help="Set true to overwrite")
     parser.add_argument('--seed', type=int, default=1234, help="Random seed")
@@ -214,6 +214,7 @@ if __name__ == "__main__":
                 np.random.seed(opts.seed)
                 if problem == 'tsp':
                     dataset = generate_tsp_data(opts.dataset_size, graph_size)
+                    save_dataset(dataset,f'data\\trp\\trp_random_S{graph_size}_seed{opts.seed}.pkl')
                     #dataset = generate_tsplib_data(opts.dataset_size, graph_size)
                     #dataset, datasetTest, inst = generate_trp_data(opts.dataset_size, graph_size)
                     #save_dataset(datasetTest,f'data\\trp\\trp_test{graph_size}_R{inst}_{opts.seed}.pkl')

@@ -61,6 +61,47 @@
                 "--run_name", "tsp20_rollout",
                 "--val_dataset", "data/tsp/tsp20_validation_seed4321.pkl"
             ]
+        },
+        {
+            "name": "Dbg: Train Test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--graph_size", "21",
+                "--problem", "tsp",
+                "--run_name", "trp_all",
+                "--val_dataset", "data/trp/trp_all_S20.pkl",
+                "--epoch_size", "128000",
+                "--multiplier", "100"
+            ]
+        },
+        {
+            "name": "Dbg: Train Random Test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/run.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--graph_size", "21",
+                "--problem", "tsp",
+                "--run_name", "trp_all",
+                "--val_dataset", "data/trp/trp_random_S21_seed1234.pkl",
+                "--epoch_size", "128000",
+            ]
+        },
+        {
+            "name": "Dbg: Random Generate TRP",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/generate_data.py",
+            "console": "integratedTerminal",
+            "args": [
+             "--problem", "tsp",
+            "--name", "rd",
+            "--seed", "1234"
+            ]
         }
     ]
 }

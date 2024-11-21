@@ -74,7 +74,7 @@ def eval_dataset(dataset_path, width, softmax_temp, opts):
 
     costs, tours, durations = zip(*results)  # Not really costs since they should be negative
 
-    print("Average cost: {} +- {}".format(np.mean(costs), 2 * np.std(costs) / np.sqrt(len(costs))))
+    print("Average cost: {} +- {}".format(np.mean(costs) * opts.multiplier, 2 * np.std(costs) / np.sqrt(len(costs))* opts.multiplier))
     print("Average serial duration: {} +- {}".format(
         np.mean(durations), 2 * np.std(durations) / np.sqrt(len(durations))))
     print("Average parallel duration: {}".format(np.mean(durations) / parallelism))

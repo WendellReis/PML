@@ -55,7 +55,7 @@ For training TSP instances with 20 nodes and using rollout as REINFORCE baseline
 python run.py --graph_size 20 --baseline rollout --run_name 'tsp20_rollout' --val_dataset data/tsp/tsp20_validation_seed4321.pkl
 python run.py --graph_size 4 --baseline rollout --run_name 'acharpi' --val_dataset data/tsp/tsp4_tsp_seed1234.pkl --epoch_size 100 --batch_size 100 --val_size 100
 python run.py --graph_size 11 --baseline rollout --problem tsp --run_name 'trp10_rollout' --val_dataset data/trp/train_S10_R1.pkl --epoch_size 19 --n_epochs 100 --batch_size 19 --val_size 19
-python run.py --graph_size 21 --problem tsp --run_name trp_all --val_dataset data/trp/trp_all_S20.pkl --epoch_size 128000
+python run.py --graph_size 21 --problem tsp --run_name trp_all --val_dataset data/trp/trp_all_S20.pkl --epoch_size 128000 --multiplier 100
 ```
 
 #### Multiple GPUs

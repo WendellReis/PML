@@ -30,9 +30,6 @@ class TSP(object):
 
 
         costs = (distances*weights).sum(1) + (d[:, 0] - d[:, -1]).norm(p=2, dim=1)
-        
-        multiplier = 100 if pi.size(1) < 500 else 500
-        costs = costs * multiplier
 
         return costs, None
     
