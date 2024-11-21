@@ -45,6 +45,17 @@ def generate_trp_data(dataset_size, trp_size, inst):
     print(dataset)
     return dataset, datasetTest, inst
 
+def generate_trp_all_data(dataset_size, trp_size):
+    dataset = []
+
+    for i in range(1, 21):
+        arquivo = os.path.join('archives/problems/trp', f'TRP-S{trp_size-1}-R{i}.txt')
+        coordenadas = ler_coordenadas(arquivo)
+        coordenadas_normalizadas = normalizar_coordenadas(coordenadas,trp_size)
+        dataset.append(coordenadas_normalizadas)
+
+    return dataset
+
 def generate_tsp_data(dataset_size, tsp_size):
     return np.random.uniform(size=(dataset_size, tsp_size, 2)).tolist()
 
@@ -207,10 +218,15 @@ if __name__ == "__main__":
                     #dataset, datasetTest, inst = generate_trp_data(opts.dataset_size, graph_size)
                     #save_dataset(datasetTest,f'data\\trp\\trp_test{graph_size}_R{inst}_{opts.seed}.pkl')
                     #save_dataset(dataset,f'data\\trp\\trp_dataset{graph_size}_seed{opts.seed}.pkl')
+                    '''
                     for i in range(1,21):
                         dataset, datasetTest, inst = generate_trp_data(opts.dataset_size,graph_size,i)
                         save_dataset(dataset,f'data\\trp\\train_S{graph_size}_R{inst}.pkl')
                         save_dataset(datasetTest,f'data\\trp\\S{graph_size}_R{inst}.pkl')
+                    
+                    dataset = generate_trp_all_data(opts.dataset_size, graph_size)
+                    save_dataset(dataset,f'data\\trp\\trp_all_S{graph_size-1}.pkl')
+                    '''
 
                 elif problem == 'vrp':
                     dataset = generate_vrp_data(
