@@ -1,0 +1,66 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File with Arguments",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "--graph_size", "20", "--baseline", "rollout", "--run_name", "'tsp20_rollout'", "--val_dataset", "data/tsp/tsp20_validation_seed4321.pkl"
+            ]
+        },
+
+        {
+            "name": "Dbg: TSP 4",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "--graph_size",
+                "4",
+                "--baseline",
+                "rollout",
+                "--run_name",
+                "acharpi",
+                "--val_dataset",
+                "data/tsp/tsp4_tsp_seed1234.pkl",
+                "--epoch_size",
+                "100",
+                "--batch_size",
+                "100",
+                "--val_size",
+                "100"
+            ]
+        },
+        {
+            "name": "Dbg: EVAL",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "data/trp/S10_R1.pkl",
+                "--model",
+                "outputs/tsp_10/trp1",
+                "--decode_strategy",
+                "greedy"
+            ]
+        },
+        {
+            "name": "Dbg: CUDA Test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": [
+                "--graph_size", "20",
+                "--baseline", "rollout",
+                "--run_name", "tsp20_rollout",
+                "--val_dataset", "data/tsp/tsp20_validation_seed4321.pkl"
+            ]
+        }
+    ]
+}
