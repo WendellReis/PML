@@ -42,11 +42,12 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "args": [
-                "data/trp/S10_R1.pkl",
+                "data/trp/trp_all_S20.pkl",
                 "--model",
                 "outputs/tsp_10/trp1",
                 "--decode_strategy",
-                "greedy"
+                "greedy",
+                "-f"
             ]
         },
         {

@@ -56,6 +56,8 @@ python run.py --graph_size 20 --baseline rollout --run_name 'tsp20_rollout' --va
 python run.py --graph_size 4 --baseline rollout --run_name 'acharpi' --val_dataset data/tsp/tsp4_tsp_seed1234.pkl --epoch_size 100 --batch_size 100 --val_size 100
 python run.py --graph_size 11 --baseline rollout --problem tsp --run_name 'trp10_rollout' --val_dataset data/trp/train_S10_R1.pkl --epoch_size 19 --n_epochs 100 --batch_size 19 --val_size 19
 python run.py --graph_size 21 --problem tsp --run_name trp_all --val_dataset data/trp/trp_all_S20.pkl --epoch_size 128000 --multiplier 100
+python run.py --graph_size 21 --problem tsp --run_name trp_all --val_dataset data/trp/trp_all_S20.pkl --epoch_size 128000 --baseline rollout --run_name trp_21_S20_rollout
+python run.py --graph_size 21 --problem tsp --val_dataset data/trp/trp_random_S21_seed1234.pkl --epoch_size 128000 --baseline rollout --run_name trp_21_random_rollout
 ```
 
 #### Multiple GPUs
@@ -87,6 +89,8 @@ python eval.py data/tsp/tsp5_teste01_seed1234.pkl --model pretrained/tsp_20 --de
 python eval.py data/trp/S10_R1.pkl --model outputs/tsp_10/trp1 --decode_strategy greedy
 python eval.py data/trp/S10_R1.pkl --model outputs/tsp_11/trp02 --decode_strategy greedy
 python eval.py data/trp/S10_R1.pkl --model pretrained/tsp_20 --decode_strategy greedy
+python eval.py data/trp/trp_all_S20.pkl --model outputs/tsp_21/trp_21_S20_rollout --decode_strategy greedy
+
 
 ```
 

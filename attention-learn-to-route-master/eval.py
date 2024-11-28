@@ -74,7 +74,10 @@ def eval_dataset(dataset_path, width, softmax_temp, opts):
 
     costs, tours, durations = zip(*results)  # Not really costs since they should be negative
 
-    print("Average cost: {} +- {}".format(np.mean(costs) * opts.multiplier, 2 * np.std(costs) / np.sqrt(len(costs))* opts.multiplier))
+
+    printCosts(costs,tours, opts.multiplier)
+
+    print("Average cost: {} +- {}".format(np.mean(costs), 2 * np.std(costs) / np.sqrt(len(costs))))
     print("Average serial duration: {} +- {}".format(
         np.mean(durations), 2 * np.std(durations) / np.sqrt(len(durations))))
     print("Average parallel duration: {}".format(np.mean(durations) / parallelism))
@@ -102,6 +105,21 @@ def eval_dataset(dataset_path, width, softmax_temp, opts):
 
     return costs, tours, durations
 
+
+def printCosts(costs,tours,multiplier):
+    print("Instances Costs:")
+    i = 1
+    for c in costs:
+        print(f'R{i} = {c*multiplier}')
+        i+=1
+    '''
+    print("Instances Tours:")
+    i = 1
+    for pi in tours:
+        print(f'R{i} = {pi}')
+        i+=1
+    '''
+        
 
 def _eval_dataset(model, dataset, width, softmax_temp, opts, device):
 
@@ -203,6 +221,7 @@ if __name__ == "__main__":
     parser.add_argument('--results_dir', default='results', help="Name of results directory")
     parser.add_argument('--multiprocessing', action='store_true',
                         help='Use multiprocessing to parallelize over multiple GPUs')
+    parser.add_argument('--multiplier', type=int, default=1,help="Multiplier for normalized instances")
 
     opts = parser.parse_args()
 
